@@ -168,6 +168,7 @@ size = Vector2(44, 56)
 
 [node name="bomfim" type="CharacterBody2D"]
 z_index = 1
+scale = Vector2(2, 2)
 script = ExtResource("1_abebd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
