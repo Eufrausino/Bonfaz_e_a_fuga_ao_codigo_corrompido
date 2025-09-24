@@ -5,8 +5,8 @@
 [node name="Fundo" type="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, 11)
-scale = Vector2(1.60547, 0.839844)
+position = Vector2(1, 1)
+scale = Vector2(1.23073, 0.599074)
 texture = ExtResource("1_712gb")
 centered = false
 

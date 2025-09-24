@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://of1y7kfu5ctq"]
+[gd_scene load_steps=27 format=3 uid="uid://of1y7kfu5ctq"]
 
+[ext_resource type="Script" path="res://cenas/bomfim.gd" id="1_abebd"]
 [ext_resource type="Texture2D" uid="uid://dvkh6gdbjhgn3" path="res://assets/ana.png" id="1_y4yo2"]
 [ext_resource type="Texture2D" uid="uid://cgovvojbnnv6r" path="res://assets/img/ana.png" id="2_gs44q"]
 [ext_resource type="AudioStream" uid="uid://dscpg6m666dta" path="res://assets/sound/jump.wav" id="3_4n21f"]
@@ -123,9 +124,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lowsd")
 }],
-"loop": true,
+"loop": false,
 "name": &"correndo",
-"speed": 1.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,30 +152,33 @@ animations = [{
 }],
 "loop": true,
 "name": &"correndo-2",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ie0n0")
 }],
-"loop": true,
+"loop": false,
 "name": &"parada",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tg3af"]
-size = Vector2(18, 19)
+size = Vector2(44, 56)
 
 [node name="bomfim" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_abebd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2, -2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_pgaop")
 animation = &"correndo"
-frame_progress = 0.11576
 
 [node name="CorreColisao" type="CollisionShape2D" parent="."]
-position = Vector2(2, -1.5)
+position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_tg3af")
 
 [node name="pulo" type="AudioStreamPlayer2D" parent="."]

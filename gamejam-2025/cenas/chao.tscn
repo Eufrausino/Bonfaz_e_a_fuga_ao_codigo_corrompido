@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byduisq08s4wj" path="res://assets/img/telas/chao.png" id="1_3l01s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ti3g"]
-size = Vector2(20.53, 1.47)
+size = Vector2(20.53, 1.685)
 
 [node name="Chao" type="StaticBody2D"]
 
@@ -13,11 +13,11 @@ texture = ExtResource("1_3l01s")
 centered = false
 
 [node name="chao2" type="Sprite2D" parent="."]
-position = Vector2(1026, 552)
+position = Vector2(1024, 552)
 texture = ExtResource("1_3l01s")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1025.5, 648.5)
+position = Vector2(1027, 634.75)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_8ti3g")
