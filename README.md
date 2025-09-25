@@ -8,6 +8,13 @@ Já dentro da pasta **`gamejam-2025`**, faça o download do arquivo `.zip` conte
 > Observação: o download via Google Drive é necessário, pois o Git não permite o upload de arquivos maiores que 100 MB.
 > Certifique-se de que o arquivo `.zip` esteja dentro da pasta **`gamejam-2025`** antes de prosseguir.
 
+```sh
+├── Bonfaz_e_a_fuga_ao_codigo_corrompido/
+└── gamejam-2025/
+    ├── exec.sh
+    └── # Coloque os arquivos dentro de executavel.zip AQUI
+```
+
 Em seguida, para executar o jogo **pela primeira vez** , dê permissão de execução ao script `exec.sh`:
 ```sh
 chmod +x exec.sh
@@ -18,7 +25,7 @@ Então, execute com:
 ./exec.sh
 ```
 
-> Observação: após a primeira vez execute o jogo inserindo o seguinte comando no terminal:
+> *Observação: após a primeira vez execute o jogo inserindo o seguinte comando no terminal:*
 ```sh
 ./executavel_linux.x86_64
 ```
