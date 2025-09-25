@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://of1y7kfu5ctq"]
+[gd_scene load_steps=29 format=3 uid="uid://of1y7kfu5ctq"]
 
 [ext_resource type="Script" path="res://cenas/bomfim.gd" id="1_abebd"]
 [ext_resource type="Texture2D" uid="uid://dvkh6gdbjhgn3" path="res://assets/ana.png" id="1_y4yo2"]
 [ext_resource type="Texture2D" uid="uid://cgovvojbnnv6r" path="res://assets/img/ana.png" id="2_gs44q"]
 [ext_resource type="AudioStream" uid="uid://dscpg6m666dta" path="res://assets/sound/jump.wav" id="3_4n21f"]
 [ext_resource type="AudioStream" uid="uid://b6eudljie4dyh" path="res://assets/sound/morte.mp3" id="5_nyo1y"]
+[ext_resource type="AudioStream" uid="uid://em8gwfmlskx6" path="res://assets/sound/coin.wav" id="6_neuvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt8cr"]
 atlas = ExtResource("1_y4yo2")
@@ -190,4 +191,8 @@ volume_db = -25.0
 [node name="morte" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_nyo1y")
+volume_db = 5.0
+
+[node name="coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_neuvw")
 volume_db = 5.0
