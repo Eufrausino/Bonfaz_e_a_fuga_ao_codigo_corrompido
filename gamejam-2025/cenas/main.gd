@@ -134,7 +134,8 @@ func game_over():
 		$"bomfim/morte".play()
 	get_tree().paused = true
 	game_running = false
-	await $"bomfim/morte".finished
+	if (Dados.placar_final != 100):
+		await $"bomfim/morte".finished
 	Dados.placar_final = placar
 	get_tree().paused = false
 	get_tree().change_scene_to_file(gameOverScene)
@@ -158,7 +159,7 @@ func gerar_platorma():
 		
 		ultimaPlataforma = plataforma
 		adiciona_plataforma(plataforma, x, y)
-		if (randi_range(0, 100) < 15):
+		if (randi_range(0, 100) < 20):
 			adiciona_pergaminho(pergaminho, x, y_per)
 		
 func adiciona_plataforma(plataforma, x, y):
@@ -182,7 +183,7 @@ func colisaoPergaminho(body, pergaminho):
 		mostrar_placar()
 		pergaminho.queue_free()
 		$"bomfim/coin".play()
-		velocidade_bomfim += placar * 0.123
+		velocidade_bomfim += placar * 0.05
 		print("Velocidade: " + str(velocidade_bomfim))
 		if(placar == 100):
 			print("teste")
