@@ -1,5 +1,7 @@
 extends Node
 
+var gameOverScene = "res://cenas/game_over_scene.tscn"
+
 var virus1 = preload("res://cenas/virus.tscn")
 var virus2 = preload("res://cenas/virus_2.tscn")
 var tipos_obstaculos := [virus1, virus2]
@@ -40,8 +42,6 @@ func novo_jogo():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if game_running == true:
-		$"Fundo/background_music".play()
 		
 	velocidade_bomfim = VELOCIDDADE_INICIAL
 	
@@ -86,9 +86,13 @@ func colisaoObstaculo(body):
 		game_over()
 
 func game_over():
-	get_tree().paused = true
 	$"bomfim/morte".play()
+	get_tree().paused = true
 	game_running = false
+	await $"bomfim/morte".finished
+	get_tree().paused = false
+	get_tree().change_scene_to_file(gameOverScene)
+	
 
 func removerObstaculo(obs):
 	obs.queue_free()
