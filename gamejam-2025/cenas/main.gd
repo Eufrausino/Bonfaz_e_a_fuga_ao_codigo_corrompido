@@ -9,6 +9,7 @@ var obstaculos : Array
 var virusHeights := [215, 390]
 var ultimoObjeto
 
+var placar: int
 var alturaChao : int
 
 const BOMFIM_POS_INICIAL:= Vector2i(520,510)
@@ -40,6 +41,7 @@ func _ready() -> void:
 	novo_jogo()
 
 func novo_jogo():
+	placar = 0
 	$bomfim.position = BOMFIM_POS_INICIAL
 	$bomfim.velocity = Vector2i(0,0)
 	$Camera2D.position =  CAM_POS_INICIAL
@@ -57,6 +59,12 @@ func _process(delta: float) -> void:
 	
 	$bomfim.position.x += velocidade_bomfim
 	$Camera2D.position.x += velocidade_bomfim
+	
+	#aumentar meu placar -> O plcar está aumentando 
+	# de acordo com o movimento do jogador pela tela
+	placar = 0
+	#print(placar) 
+	mostrar_placar()
 	
 	velocidade_onda = velocidade_bomfim - 5
 	$Ondas.position.x += velocidade_bomfim
@@ -129,3 +137,6 @@ func adiciona_plataforma(plataforma, x, y):
 	#obstaculo.body_entered.connect(colisaoObstaculo)
 	add_child(plataforma)
 	plataformas.append(plataforma)
+	
+func mostrar_placar():
+	$TentandoEmPLACAR.get_node("PlacarLabel").text = "PLACAR: " + str(placar)

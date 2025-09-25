@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccqyfduai6twh"]
+
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_th38f"]
+
+[node name="TentandoEmPLACAR" type="CanvasLayer"]
+
+[node name="PlacarLabel" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 11.0
+offset_right = 385.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("1_th38f")
+theme_override_font_sizes/font_size = 40
+text = "PLACAR:"
+vertical_alignment = 1
+clip_text = true
