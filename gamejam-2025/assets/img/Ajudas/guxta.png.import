@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://rdycebml7v1o"
+=======
+uid="uid://c28sy52u4htcy"
+>>>>>>> 10605dee959c3c572cbad1b61b68f2e8d3d50659
 path="res://.godot/imported/guxta.png-44a7677e3433be808cb75e1e786ee37f.ctex"
 metadata={
 "vram_texture": false
