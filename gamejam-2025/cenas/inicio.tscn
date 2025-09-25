@@ -48,6 +48,6 @@ stream = ExtResource("5_wrpr5")
 autoplay = true
 
 [node name="Ondas" parent="." instance=ExtResource("7_tmftn")]
-position = Vector2(98, 505)
+position = Vector2(158, 511)
 
 [connection signal="pressed" from="Control/TextureRect/TextureButton" to="Control" method="_on_texture_button_pressed"]
