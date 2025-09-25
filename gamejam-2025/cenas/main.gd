@@ -1,14 +1,16 @@
 extends Node
 
-var gameOverScene = "res://cenas/game_over_scene.tscn"
-
 var virus1 = preload("res://cenas/virus.tscn")
 var virus2 = preload("res://cenas/virus_2.tscn")
+var gameOverScene = "res://cenas/game_over_scene.tscn"
 var tipos_obstaculos := [virus1, virus2]
 var obstaculos : Array
 var virusHeights := [215, 390]
-var ultimoObjeto
+var ultimoObstaculo
+var ultimaParede
+var ultimaPlataforma
 
+var placar: int
 var alturaChao : int
 
 const BOMFIM_POS_INICIAL:= Vector2i(520,510)
@@ -40,6 +42,7 @@ func _ready() -> void:
 	novo_jogo()
 
 func novo_jogo():
+	placar = 0
 	$bomfim.position = BOMFIM_POS_INICIAL
 	$bomfim.velocity = Vector2i(0,0)
 	$Camera2D.position =  CAM_POS_INICIAL
@@ -49,14 +52,23 @@ func novo_jogo():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	#if game_running == true:
+		#$"Fundo/background_music".play()
 		
 	velocidade_bomfim = VELOCIDDADE_INICIAL
 	
 	gerar_obstaculo()
 	gerar_platorma()
+	gerar_parede()
 	
 	$bomfim.position.x += velocidade_bomfim
 	$Camera2D.position.x += velocidade_bomfim
+	
+	#aumentar meu placar -> O plcar está aumentando 
+	# de acordo com o movimento do jogador pela tela
+	placar = 0
+	#print(placar) 
+	mostrar_placar()
 	
 	velocidade_onda = velocidade_bomfim - 5
 	$Ondas.position.x += velocidade_bomfim
@@ -67,12 +79,11 @@ func _process(delta: float) -> void:
 	for obs in obstaculos:
 		if obs.position.x < ($Camera2D.position.x - tam_tela.x):
 			removerObstaculo(obs)
-	
 
 func gerar_obstaculo():
 	var margem_saida_da_tela = 50 
 
-	if obstaculos.is_empty() or ultimoObjeto.position.x < ($Camera2D.position.x - tam_tela.x / 2) - margem_saida_da_tela:
+	if obstaculos.is_empty() or ultimoObstaculo.position.x < ($Camera2D.position.x - tam_tela.x / 2) - margem_saida_da_tela:
 		
 		var tipoObstaculo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
 		var obstaculo = tipoObstaculo.instantiate()
@@ -84,7 +95,7 @@ func gerar_obstaculo():
 		else:
 			obstaculo_y = virusHeights[randi() % virusHeights.size()]
 			
-		ultimoObjeto = obstaculo
+		ultimoObstaculo = obstaculo
 		adiciona_obstaculo(obstaculo, obstaculo_x, obstaculo_y)
 		
 func adiciona_obstaculo(obstaculo, x, y):
@@ -104,7 +115,6 @@ func game_over():
 	await $"bomfim/morte".finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file(gameOverScene)
-	
 
 func removerObstaculo(obs):
 	obs.queue_free()
@@ -112,16 +122,15 @@ func removerObstaculo(obs):
 
 func gerar_platorma():
 	var margem_saida_da_tela = 50 
-	if plataformas.is_empty() or ultimoObjeto.position.x < ($Camera2D.position.x + tam_tela.x / 2) - margem_saida_da_tela:
+	if plataformas.is_empty() or ultimaPlataforma.position.x < ($Camera2D.position.x + tam_tela.x / 2) - margem_saida_da_tela:
 		
 		#var tipoObstaculo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
 		#var obstaculo = tipoObstaculo.instantiate()
 		var plataforma = Plataforma.instantiate()
 		var x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(100, 500)
 		var y : int = plataformasHeights[randi() % plataformasHeights.size()]
-		print(y)
 		
-		ultimoObjeto = plataforma
+		ultimaPlataforma = plataforma
 		adiciona_plataforma(plataforma, x, y)
 		
 func adiciona_plataforma(plataforma, x, y):
@@ -129,3 +138,22 @@ func adiciona_plataforma(plataforma, x, y):
 	#obstaculo.body_entered.connect(colisaoObstaculo)
 	add_child(plataforma)
 	plataformas.append(plataforma)
+
+func gerar_parede():
+	var margem_saida_da_tela = 50
+	if paredes.is_empty() or ultimaParede.position.x < ($Camera2D.position.x + tam_tela.x / 2) - margem_saida_da_tela:
+		if ultimaPlataforma.position.x < ($Camera2D.position.x + tam_tela.x / 2):
+			if ultimoObstaculo.position.x < ($Camera2D.position.x + tam_tela.x / 2):
+				var parede = Parede.instantiate()
+				var x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(200, 1000)
+				
+				ultimaParede = parede     
+				adiciona_parede(parede, x)   
+		
+func adiciona_parede(parede, x):
+	parede.position = Vector2i(x,475)
+	add_child(parede)
+	paredes.append(parede)
+
+func mostrar_placar():
+	$TentandoEmPLACAR.get_node("PlacarLabel").text = "PLACAR: " + str(placar)

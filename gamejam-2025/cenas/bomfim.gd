@@ -13,6 +13,7 @@ const JUMP_VELOCITY = -800.0
 func _ready():
 	# Conectamos o sinal de "animação finalizada" a uma função.
 	# Isso garante que podemos reagir quando uma animação que NÃO está em loop terminar.
+	Engine.max_fps = 60
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	
 	# Inicia a primeira animação da sequência.
@@ -37,7 +38,6 @@ func _physics_process(delta):
 
 	# 4. Mover o personagem
 	move_and_slide()
-
 
 # --- MANIPULAÇÃO DE SINAIS ---
 

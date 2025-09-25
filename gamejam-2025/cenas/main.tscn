@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://imx0hxd0hfoo"]
+[gd_scene load_steps=8 format=3 uid="uid://imx0hxd0hfoo"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_6vjsa"]
 [ext_resource type="PackedScene" uid="uid://cko73o1yx1kv0" path="res://cenas/fundo.tscn" id="1_i46nf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://of1y7kfu5ctq" path="res://cenas/bomfim.tscn" id="3_57f0h"]
 [ext_resource type="PackedScene" uid="uid://dythqwq6s5262" path="res://cenas/ondas.tscn" id="4_n4ggf"]
 [ext_resource type="AudioStream" uid="uid://bgvbkohd3783k" path="res://assets/sound/fundo.wav" id="6_l0omr"]
+[ext_resource type="PackedScene" path="res://cenas/tentando_em_placar.tscn" id="7_w0f28"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6vjsa")
@@ -27,3 +28,5 @@ position = Vector2(17, 529)
 [node name="Musica" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_l0omr")
 autoplay = true
+
+[node name="TentandoEmPLACAR" parent="." instance=ExtResource("7_w0f28")]
