@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://of1y7kfu5ctq" path="res://cenas/bomfim.tscn" id="3_57f0h"]
 [ext_resource type="PackedScene" uid="uid://dythqwq6s5262" path="res://cenas/ondas.tscn" id="4_n4ggf"]
 [ext_resource type="AudioStream" uid="uid://bgvbkohd3783k" path="res://assets/sound/fundo.wav" id="6_l0omr"]
-[ext_resource type="PackedScene" path="res://cenas/tentando_em_placar.tscn" id="7_w0f28"]
+[ext_resource type="PackedScene" uid="uid://ccqyfduai6twh" path="res://cenas/tentando_em_placar.tscn" id="7_w0f28"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6vjsa")

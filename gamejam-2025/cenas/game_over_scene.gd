@@ -1,6 +1,6 @@
 extends Control
 
-var cena_do_jogo = "res://cenas/main.tscn"
+var cena_do_jogo = "res://cenas/inicio.tscn"
 
 func _ready() -> void:
 	$HUD.hide()
