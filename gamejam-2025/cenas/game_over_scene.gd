@@ -9,11 +9,18 @@ func _ready() -> void:
 		$"MarginContainer/0Pontos".play()
 	if (Dados.placar_final == 25):
 		$"MarginContainer/25Pontos".play()
+		$HUD.get_node("Label").text = "Daniel dormirá triste!"
 	if (Dados.placar_final == 50):
+		$HUD.get_node("Label").text = "Ficou de final!"
 		$"MarginContainer/50Pontos".play()
 	if (Dados.placar_final == 75):
+		$HUD.get_node("Label").text = "Meh, podia ir melhor"
 		$"MarginContainer/75Pontos".play()
 	if (Dados.placar_final == 100):
+		var label = $HUD.get_node("Label")
+		label.text = "Daniel dormirá feliz!"
+		label.add_theme_color_override("font_color", Color.DARK_GREEN)
+		$HUD.get_node("Label2").add_theme_color_override("font_color", Color.DARK_GREEN)
 		$"MarginContainer/100Pontos".play()
 
 func _input(event):
