@@ -14,7 +14,7 @@ script = ExtResource("1_6vjsa")
 [node name="Chao" parent="." instance=ExtResource("2_ixqjq")]
 position = Vector2(2, 6)
 
-[node name="bomfim" parent="." instance=ExtResource("3_57f0h")]
+[node name="bomfim" parent="." groups=["jogador"] instance=ExtResource("3_57f0h")]
 position = Vector2(520, 510)
 
 [node name="Camera2D" type="Camera2D" parent="."]

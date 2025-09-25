@@ -4,7 +4,7 @@ var virus1 = preload("res://cenas/virus.tscn")
 var virus2 = preload("res://cenas/virus_2.tscn")
 var tipos_obstaculos := [virus1, virus2]
 var obstaculos : Array
-var virusHeights := [200, 390]
+var virusHeights := [215, 390]
 var ultimoObjeto
 
 var alturaChao : int
@@ -19,8 +19,10 @@ const MAX_VELOCIDADE: int =  50.0
 const POS_CHAO:= Vector2i(2,6)
 
 var velocidade_onda:float
-
 var tam_tela : Vector2i
+
+var game_running : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,9 +35,14 @@ func novo_jogo():
 	$bomfim.velocity = Vector2i(0,0)
 	$Camera2D.position =  CAM_POS_INICIAL
 	$Chao.position = POS_CHAO
+	game_running = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if game_running == true:
+		$"Fundo/background_music".play()
+		
 	velocidade_bomfim = VELOCIDDADE_INICIAL
 	
 	gerar_obstaculo()
@@ -49,20 +56,40 @@ func _process(delta: float) -> void:
 	if $Camera2D.position.x - $Chao.position.x > tam_tela.x * 1.5:
 		$Chao.position.x += tam_tela.x
 	
+	for obs in obstaculos:
+		if obs.position.x < ($Camera2D.position.x - tam_tela.x):
+			removerObstaculo(obs)
+	
 
 func gerar_obstaculo():
-	if obstaculos.is_empty():
-		var tipoObstaculo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
-		var obstaculo
-		obstaculo = tipoObstaculo.instantiate()
+	var margem_saida_da_tela = 50 
+
+	if obstaculos.is_empty() or ultimoObjeto.position.x < ($Camera2D.position.x - tam_tela.x / 2) - margem_saida_da_tela:
 		
-		var alturaObstaculo = obstaculo.get_node("Sprite2D").texture.get_height()
-		var escalaObstaculo = obstaculo.get_node("Sprite2D").scale
-		var obstaculo_x : int = tam_tela.x + (velocidade_bomfim/5000) + 100
+		var tipoObstaculo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
+		var obstaculo = tipoObstaculo.instantiate()
+		
+		var obstaculo_x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(100, 400)
 		var obstaculo_y : int = virusHeights[randi() % virusHeights.size()]
-		#var obstaculo_y : int = tam_tela.y - alturaChao - (alturaObstaculo * escalaObstaculo.y / 2) + 5
 		
 		ultimoObjeto = obstaculo
-		obstaculo.position = Vector2i(obstaculo_x, obstaculo_y)
-		add_child(obstaculo)
-		obstaculos.append(obstaculo)
+		adiciona_obstaculo(obstaculo, obstaculo_x, obstaculo_y)
+		
+func adiciona_obstaculo(obstaculo, x, y):
+	obstaculo.position = Vector2i(x, y)
+	obstaculo.body_entered.connect(colisaoObstaculo)
+	add_child(obstaculo)
+	obstaculos.append(obstaculo)
+
+func colisaoObstaculo(body):
+	if body.is_in_group("jogador"):
+		game_over()
+
+func game_over():
+	get_tree().paused = true
+	$"bomfim/morte".play()
+	game_running = false
+
+func removerObstaculo(obs):
+	obs.queue_free()
+	obstaculos.erase(obs)

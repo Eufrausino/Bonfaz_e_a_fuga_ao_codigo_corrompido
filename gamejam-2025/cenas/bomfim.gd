@@ -27,6 +27,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("pular") # A animação de pulo tem prioridade
+		$"pulo".play()
 
 	# 3. Lógica de animação ao pousar
 	# Se estamos no chão e a animação atual é "pular", significa que acabamos de pousar.

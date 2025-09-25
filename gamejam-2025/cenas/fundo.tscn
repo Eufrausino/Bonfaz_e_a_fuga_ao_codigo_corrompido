@@ -18,3 +18,5 @@ position = Vector2(-1, 0)
 scale = Vector2(0.601042, 0.6)
 texture = ExtResource("1_712gb")
 centered = false
+
+[node name="background_music" type="AudioStreamPlayer2D" parent="."]

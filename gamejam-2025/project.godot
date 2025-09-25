@@ -14,3 +14,7 @@ config/name="gamejam-2025"
 run/main_scene="res://cenas/fundo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+jogador=""

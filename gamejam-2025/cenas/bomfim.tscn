@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://of1y7kfu5ctq"]
+[gd_scene load_steps=28 format=3 uid="uid://of1y7kfu5ctq"]
 
 [ext_resource type="Script" path="res://cenas/bomfim.gd" id="1_abebd"]
 [ext_resource type="Texture2D" uid="uid://dvkh6gdbjhgn3" path="res://assets/ana.png" id="1_y4yo2"]
 [ext_resource type="Texture2D" uid="uid://cgovvojbnnv6r" path="res://assets/img/ana.png" id="2_gs44q"]
 [ext_resource type="AudioStream" uid="uid://dscpg6m666dta" path="res://assets/sound/jump.wav" id="3_4n21f"]
+[ext_resource type="AudioStream" uid="uid://b6eudljie4dyh" path="res://assets/sound/morte.mp3" id="5_nyo1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt8cr"]
 atlas = ExtResource("1_y4yo2")
@@ -164,7 +165,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tg3af"]
-size = Vector2(44, 56)
+size = Vector2(38.5, 45.5)
 
 [node name="bomfim" type="CharacterBody2D"]
 z_index = 1
@@ -179,9 +180,14 @@ sprite_frames = SubResource("SpriteFrames_pgaop")
 animation = &"correndo"
 
 [node name="CorreColisao" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -2)
+position = Vector2(-2.25, -1.75)
 shape = SubResource("RectangleShape2D_tg3af")
 
 [node name="pulo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4n21f")
 volume_db = -25.0
+
+[node name="morte" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_nyo1y")
+volume_db = 5.0
