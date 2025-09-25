@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsw00s75nx3px"]
+
+[ext_resource type="Texture2D" uid="uid://c52rwylwrdcwl" path="res://assets/img/pergaminho.png" id="1_l7e7h"]
+
+[sub_resource type="GDScript" id="GDScript_vf4wi"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+		# Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo2ws"]
+size = Vector2(38, 42.5)
+
+[node name="pergaminho" type="Area2D"]
+script = SubResource("GDScript_vf4wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_l7e7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.75)
+shape = SubResource("RectangleShape2D_xo2ws")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
