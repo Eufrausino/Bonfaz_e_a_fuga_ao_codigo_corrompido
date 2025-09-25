@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://doyqp0pwnir63"]
+[gd_scene load_steps=6 format=3 uid="uid://doyqp0pwnir63"]
 
 [ext_resource type="VideoStream" path="res://assets/videos/0.ogv" id="1_0m111"]
 [ext_resource type="Script" path="res://cenas/game_over_scene.gd" id="1_dgx8f"]
 [ext_resource type="Texture2D" uid="uid://bxlufqjofll0q" path="res://assets/img/telaGameOver.png" id="3_41fix"]
+[ext_resource type="Texture2D" uid="uid://b4o7hi4nn6ipy" path="res://assets/img/info_video.png" id="3_aw2ij"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="4_7lf2n"]
 
 [node name="GameOverScene" type="Control"]
@@ -24,6 +25,11 @@ scale = Vector2(0.299829, 0.304862)
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
 layout_mode = 2
 stream = ExtResource("1_0m111")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_aw2ij")
+expand_mode = 3
 
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
