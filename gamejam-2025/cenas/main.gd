@@ -23,6 +23,12 @@ var tam_tela : Vector2i
 
 var game_running : bool
 
+var Plataforma = preload("res://cenas/plataforma.tscn")
+var Parede = preload("res://cenas/parede.tscn")
+
+var plataformas : Array
+var plataformasHeights := [0, 10]
+var paredes : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,6 +52,7 @@ func _process(delta: float) -> void:
 	velocidade_bomfim = VELOCIDDADE_INICIAL
 	
 	gerar_obstaculo()
+	gerar_platorma()
 	
 	$bomfim.position.x += velocidade_bomfim
 	$Camera2D.position.x += velocidade_bomfim
@@ -93,3 +100,22 @@ func game_over():
 func removerObstaculo(obs):
 	obs.queue_free()
 	obstaculos.erase(obs)
+
+func gerar_platorma():
+	var margem_saida_da_tela = 50 
+	if plataformas.is_empty() or ultimoObjeto.position.x < $Camera2D.position.x + tam_tela.x / 2:
+		
+		#var tipoObstaculo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
+		#var obstaculo = tipoObstaculo.instantiate()
+		var plataforma = Plataforma.instantiate()
+		var x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(10, 400)
+		var y : int = plataformasHeights[randi() % plataformasHeights.size()]
+		
+		ultimoObjeto = plataforma
+		adiciona_plataforma(plataforma, x, y)
+		
+func adiciona_plataforma(plataforma, x, y):
+	plataforma.position = Vector2i(x, y)
+	#obstaculo.body_entered.connect(colisaoObstaculo)
+	add_child(plataforma)
+	plataformas.append(plataforma)

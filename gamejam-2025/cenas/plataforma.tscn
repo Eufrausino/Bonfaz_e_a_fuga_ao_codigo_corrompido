@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw2l3xph64iio"]
+
+[ext_resource type="Texture2D" uid="uid://c8j2o7hxaleio" path="res://assets/img/Barreira.png" id="1_1qq1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4pag"]
+size = Vector2(219, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_o4pag")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1qq1u")
