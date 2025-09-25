@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctcncs4s7gf01"]
+
+[ext_resource type="AudioStream" uid="uid://bgvbkohd3783k" path="res://assets/sound/fundo.wav" id="1_hcy4i"]
+[ext_resource type="Script" path="res://cenas/audio_stream_player_2d.gd" id="2_dihh3"]
+
+[node name="Musica" type="Node"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_hcy4i")
+autoplay = true
+script = ExtResource("2_dihh3")

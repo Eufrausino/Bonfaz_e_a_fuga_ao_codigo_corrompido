@@ -10,6 +10,7 @@ var ultimoObstaculo
 var ultimaParede
 var ultimaPlataforma
 
+var placar: int
 var alturaChao : int
 
 const BOMFIM_POS_INICIAL:= Vector2i(520,510)
@@ -37,9 +38,11 @@ var paredes : Array
 func _ready() -> void:
 	tam_tela = get_window().size
 	alturaChao = $Chao.get_node("chao1").texture.get_height()
+	Engine.max_fps = 60
 	novo_jogo()
 
 func novo_jogo():
+	placar = 0
 	$bomfim.position = BOMFIM_POS_INICIAL
 	$bomfim.velocity = Vector2i(0,0)
 	$Camera2D.position =  CAM_POS_INICIAL
@@ -60,6 +63,12 @@ func _process(delta: float) -> void:
 	
 	$bomfim.position.x += velocidade_bomfim
 	$Camera2D.position.x += velocidade_bomfim
+	
+	#aumentar meu placar -> O plcar está aumentando 
+	# de acordo com o movimento do jogador pela tela
+	placar = 0
+	#print(placar) 
+	mostrar_placar()
 	
 	velocidade_onda = velocidade_bomfim - 5
 	$Ondas.position.x += velocidade_bomfim
@@ -145,3 +154,7 @@ func adiciona_parede(parede, x):
 	parede.position = Vector2i(x,475)
 	add_child(parede)
 	paredes.append(parede)
+=======
+
+func mostrar_placar():
+	$TentandoEmPLACAR.get_node("PlacarLabel").text = "PLACAR: " + str(placar)
