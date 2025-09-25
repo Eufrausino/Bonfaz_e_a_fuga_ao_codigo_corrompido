@@ -159,7 +159,7 @@ func gerar_platorma():
 		
 		ultimaPlataforma = plataforma
 		adiciona_plataforma(plataforma, x, y)
-		if (randi_range(0, 100) < 20):
+		if (randi_range(0, 100) < 15):
 			adiciona_pergaminho(pergaminho, x, y_per)
 		
 func adiciona_plataforma(plataforma, x, y):
