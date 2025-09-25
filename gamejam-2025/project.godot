@@ -15,12 +15,6 @@ run/main_scene="res://cenas/fundo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-=======
-window/size/mode=2
-window/stretch/mode="viewport"
-
 [global_group]
 
 jogador=""

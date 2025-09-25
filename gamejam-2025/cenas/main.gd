@@ -154,7 +154,6 @@ func adiciona_parede(parede, x):
 	parede.position = Vector2i(x,475)
 	add_child(parede)
 	paredes.append(parede)
-=======
 
 func mostrar_placar():
 	$TentandoEmPLACAR.get_node("PlacarLabel").text = "PLACAR: " + str(placar)
