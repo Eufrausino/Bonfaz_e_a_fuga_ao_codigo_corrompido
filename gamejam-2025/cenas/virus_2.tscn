@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qmj4x7851w4o" path="res://assets/img/Inimigos/virus2-removebg-preview.png" id="1_i57kd"]
 
 [node name="Virus2" type="Area2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -3)

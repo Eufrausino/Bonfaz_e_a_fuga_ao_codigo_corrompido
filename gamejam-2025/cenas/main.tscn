@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://imx0hxd0hfoo"]
+[gd_scene load_steps=6 format=3 uid="uid://imx0hxd0hfoo"]
 
+[ext_resource type="Script" path="res://cenas/main.gd" id="1_6vjsa"]
 [ext_resource type="PackedScene" uid="uid://cko73o1yx1kv0" path="res://cenas/fundo.tscn" id="1_i46nf"]
 [ext_resource type="PackedScene" uid="uid://dnjjvi83d2fpe" path="res://cenas/chao.tscn" id="2_ixqjq"]
 [ext_resource type="PackedScene" uid="uid://of1y7kfu5ctq" path="res://cenas/bomfim.tscn" id="3_57f0h"]
 [ext_resource type="PackedScene" uid="uid://dythqwq6s5262" path="res://cenas/ondas.tscn" id="4_n4ggf"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_6vjsa")
 
 [node name="Fundo" parent="." instance=ExtResource("1_i46nf")]
 
@@ -13,10 +15,10 @@
 position = Vector2(2, 6)
 
 [node name="bomfim" parent="." instance=ExtResource("3_57f0h")]
-position = Vector2(398, 526)
+position = Vector2(520, 510)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
 [node name="Ondas" parent="." instance=ExtResource("4_n4ggf")]
-position = Vector2(68, 560)
+position = Vector2(17, 529)

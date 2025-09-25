@@ -7,12 +7,14 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
 scale = Vector2(1.23073, 0.599074)
-texture = ExtResource("1_712gb")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(1152, 1152)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-1, 0)
+scale = Vector2(0.601042, 0.6)
+texture = ExtResource("1_712gb")
 centered = false

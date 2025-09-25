@@ -64,7 +64,7 @@ _data = {
 }
 
 [node name="Ondas" type="Area2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 
 [node name="Onda" type="Sprite2D" parent="."]
 texture = ExtResource("1_7dbs6")
