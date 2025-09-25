@@ -592,6 +592,7 @@ layout_mode = 2
 stream = ExtResource("1_0m111")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="HUD"]
 offset_right = 1920.0
