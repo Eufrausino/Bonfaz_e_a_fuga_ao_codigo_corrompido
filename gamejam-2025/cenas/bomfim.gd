@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # === CONFIGURAÇÕES DE FÍSICA ===
-const JUMP_VELOCITY = -400.0
-@export var gravity = 900.0 # Usar @export permite ajustar a gravidade no editor do Godot
+const JUMP_VELOCITY = -610.0
+@export var gravity = 1100.0 # Usar @export permite ajustar a gravidade no editor do Godot
 
 # === ESTADO DO JOGADOR ===
 # É uma boa prática não depender do nome da animação para saber o que o jogador está fazendo.
