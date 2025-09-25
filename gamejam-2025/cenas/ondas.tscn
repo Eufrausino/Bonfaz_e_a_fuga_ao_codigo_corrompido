@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dythqwq6s5262"]
+[gd_scene load_steps=6 format=3 uid="uid://dythqwq6s5262"]
 
 [ext_resource type="Texture2D" uid="uid://g8gqeq8h8ha4" path="res://assets/img/onda.png" id="1_7dbs6"]
+[ext_resource type="Script" path="res://cenas/ondas.gd" id="1_to166"]
 
 [sub_resource type="Animation" id="Animation_wht1j"]
 length = 0.001
@@ -65,6 +66,7 @@ _data = {
 
 [node name="Ondas" type="Area2D"]
 scale = Vector2(0.8, 0.8)
+script = ExtResource("1_to166")
 
 [node name="Onda" type="Sprite2D" parent="."]
 texture = ExtResource("1_7dbs6")

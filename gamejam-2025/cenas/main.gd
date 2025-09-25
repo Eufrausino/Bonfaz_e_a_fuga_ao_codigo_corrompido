@@ -1,7 +1,5 @@
 extends Node
 
-var gameOverScene = "res://cenas/game_over_scene.tscn"
-
 var virus1 = preload("res://cenas/virus.tscn")
 var virus2 = preload("res://cenas/virus_2.tscn")
 var tipos_obstaculos := [virus1, virus2]
@@ -29,7 +27,7 @@ var Plataforma = preload("res://cenas/plataforma.tscn")
 var Parede = preload("res://cenas/parede.tscn")
 
 var plataformas : Array
-var plataformasHeights := [500, 420]
+var plataformasHeights := [420, 300]
 var paredes : Array
 
 # Called when the node enters the scene tree for the first time.
@@ -48,11 +46,14 @@ func novo_jogo():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	#if game_running == true:
+		#$"Fundo/background_music".play()
 		
 	velocidade_bomfim = VELOCIDDADE_INICIAL
 	
 	gerar_obstaculo()
 	gerar_platorma()
+	gerar_parede()
 	
 	$bomfim.position.x += velocidade_bomfim
 	$Camera2D.position.x += velocidade_bomfim
@@ -66,7 +67,6 @@ func _process(delta: float) -> void:
 	for obs in obstaculos:
 		if obs.position.x < ($Camera2D.position.x - tam_tela.x):
 			removerObstaculo(obs)
-	
 
 func gerar_obstaculo():
 	var margem_saida_da_tela = 50 
@@ -97,13 +97,9 @@ func colisaoObstaculo(body):
 		game_over()
 
 func game_over():
-	$"bomfim/morte".play()
 	get_tree().paused = true
+	$"bomfim/morte".play()
 	game_running = false
-	await $"bomfim/morte".finished
-	get_tree().paused = false
-	get_tree().change_scene_to_file(gameOverScene)
-	
 
 func removerObstaculo(obs):
 	obs.queue_free()
@@ -118,7 +114,6 @@ func gerar_platorma():
 		var plataforma = Plataforma.instantiate()
 		var x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(100, 500)
 		var y : int = plataformasHeights[randi() % plataformasHeights.size()]
-		print(y)
 		
 		ultimoObjeto = plataforma
 		adiciona_plataforma(plataforma, x, y)
@@ -128,3 +123,18 @@ func adiciona_plataforma(plataforma, x, y):
 	#obstaculo.body_entered.connect(colisaoObstaculo)
 	add_child(plataforma)
 	plataformas.append(plataforma)
+
+func gerar_parede():
+	var margem_saida_da_tela = 50
+	if paredes.is_empty() or ultimoObjeto.position.x < ($Camera2D.position.x + tam_tela.x / 2):
+		var parede = Parede.instantiate()
+		var x : int = $Camera2D.position.x + (tam_tela.x / 2) + randi_range(200, 1000)
+		print(x)
+		
+		ultimoObjeto = parede
+		adiciona_parede(parede, x)
+		
+func adiciona_parede(parede, x):
+	parede.position = Vector2i(x,475)
+	add_child(parede)
+	paredes.append(parede)

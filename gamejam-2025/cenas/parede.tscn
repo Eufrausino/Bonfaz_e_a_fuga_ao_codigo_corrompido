@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c8j2o7hxaleio" path="res://assets/img/Barreira.png" id="1_hmoaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywym"]
-size = Vector2(20, 200)
+size = Vector2(106.667, 1100)
 
 [node name="parede" type="Node2D"]
 
@@ -11,9 +11,10 @@ size = Vector2(20, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 rotation = 1.5708
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_hmoaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 9)
+position = Vector2(-2.38419e-07, -1.5)
+scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_0ywym")

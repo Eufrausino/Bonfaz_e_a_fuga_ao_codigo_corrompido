@@ -11,6 +11,7 @@ size = Vector2(219, 20)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+physics_interpolation_mode = 1
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_o4pag")
 one_way_collision = true
