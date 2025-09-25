@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cko73o1yx1kv0"]
 
-[ext_resource type="Texture2D" uid="uid://b5cxu1gyhkios" path="res://assets/img/telas/b1.png" id="1_712gb"]
+[ext_resource type="Texture2D" uid="uid://cbptjk3k6td6l" path="res://assets/img/telas/b4.png" id="1_jxgy1"]
 
 [node name="Fundo" type="ParallaxBackground"]
 
@@ -14,7 +14,7 @@ motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(-1, 0)
+position = Vector2(-2, 0)
 scale = Vector2(0.601042, 0.6)
-texture = ExtResource("1_712gb")
+texture = ExtResource("1_jxgy1")
 centered = false

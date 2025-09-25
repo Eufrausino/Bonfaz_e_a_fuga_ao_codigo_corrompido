@@ -2,11 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-<<<<<<< HEAD
-uid="uid://dom8hlcjj3iyh"
-=======
-uid="uid://chrn2s7x1iqmg"
->>>>>>> 6513ff1f3f8abcddd846b3f1f8abc8b5ece48b78
+uid="uid://nr7rkexlo03n"
 path="res://.godot/imported/fundo.ogg-ec76b9e82996523079a67258032883a7.oggvorbisstr"
 
 [deps]
@@ -16,11 +12,7 @@ dest_files=["res://.godot/imported/fundo.ogg-ec76b9e82996523079a67258032883a7.og
 
 [params]
 
-<<<<<<< HEAD
 loop=false
-=======
-loop=true
->>>>>>> 6513ff1f3f8abcddd846b3f1f8abc8b5ece48b78
 loop_offset=0
 bpm=0
 beat_count=0

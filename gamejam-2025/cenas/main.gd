@@ -29,7 +29,7 @@ var Plataforma = preload("res://cenas/plataforma.tscn")
 var Parede = preload("res://cenas/parede.tscn")
 
 var plataformas : Array
-var plataformasHeights := [500, 420]
+var plataformasHeights := [420, 300]
 var paredes : Array
 
 # Called when the node enters the scene tree for the first time.

@@ -3,6 +3,7 @@ extends Control
 var cena_do_jogo = "res://cenas/main.tscn"
 
 func _ready() -> void:
+	$HUD.hide()
 	$"MarginContainer/VideoStreamPlayer".play()
 
 func _input(event):
