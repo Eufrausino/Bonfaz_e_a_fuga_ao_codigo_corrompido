@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://veeytk04gted"
-path="res://.godot/imported/image.psd(3)(1)(1).png-ddde5722b687a00a6435a5e32fa50568.ctex"
+uid="uid://dbfckrjrv1lel"
+path="res://.godot/imported/personages.png-1ed2537853e4e9dde0daa9189d80a5fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/Inimigos/image.psd(3)(1)(1).png"
-dest_files=["res://.godot/imported/image.psd(3)(1)(1).png-ddde5722b687a00a6435a5e32fa50568.ctex"]
+source_file="res://assets/img/telas/Inicio/personages.png"
+dest_files=["res://.godot/imported/personages.png-1ed2537853e4e9dde0daa9189d80a5fa.ctex"]
 
 [params]
 

@@ -36,6 +36,7 @@ var paredes : Array
 func _ready() -> void:
 	tam_tela = get_window().size
 	alturaChao = $Chao.get_node("chao1").texture.get_height()
+	Engine.max_fps = 60
 	novo_jogo()
 
 func novo_jogo():
