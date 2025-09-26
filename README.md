@@ -2,34 +2,11 @@
 Todos os arquivos do jogo, incluindo o executável e os códigos-fonte, estão na pasta **`gamejam-2025`**.
 
 ## 🚀 Executáveis
-Já dentro da pasta **`gamejam-2025`**, faça o download do arquivo `.zip` contendo o executável a partir do link do Google Drive:
-[Download do Executável](https://drive.google.com/file/d/1D9Hek5bs4RiCRppmQh9WuIjpfDH3ExMp/view?usp=sharing)
+Para executar o jogo faça o download do arquivo `.zip` contendo o executável a partir do link do Google Drive:
+[Download do Executável](https://drive.google.com/drive/folders/1bjycCiji6rD_VtT01Ck_9-cE0oJUSwg1?usp=sharing)
 
 > Observação: o download via Google Drive é necessário, pois o Git não permite o upload de arquivos maiores que 100 MB.
-> Certifique-se de que o arquivo `.zip` esteja dentro da pasta **`gamejam-2025`** antes de prosseguir.
-
-```sh
-├── Bonfaz_e_a_fuga_ao_codigo_corrompido/
-└── gamejam-2025/
-    ├── exec.sh
-    └── # Coloque os arquivos dentro de executavel.zip AQUI
-```
-
-Em seguida, para executar o jogo **pela primeira vez** , dê permissão de execução ao script `exec.sh`:
-```sh
-chmod +x exec.sh
-```
-
-Então, execute com:
-```sh
-./exec.sh
-```
-
-> *Observação: após a primeira vez execute o jogo inserindo o seguinte comando no terminal:*
-```sh
-./executavel_linux.x86_64
-```
----
+> Para que o jogo inicie adequadamente, dê permissão de execução para o arquivo bomfaz.x86_64 e então é só inicializa-ló.
 
 ## 📑 Slides da Apresentação
 
@@ -75,7 +52,7 @@ Mas algo está errado: uma onda de **corrupção digital** ameaça apagar cada b
 * **Desenvolvedores Principais:** Gustavo e Gabriel Zoega
 * **Atriz e Musa:** Ana Bomfim
 * **Design:** Maria Eduarda e Ana Bomfim
-* **Sonoplastia e Edição:** Maria Eduarda
+* **Sonoplastia e Edição:** Maria Eduarda e Ana Bomfim
 
 ---
 
