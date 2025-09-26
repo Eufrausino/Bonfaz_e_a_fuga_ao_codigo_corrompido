@@ -40,7 +40,7 @@ A apresentação para o dia **26** está disponível no link abaixo:
 
 ## 🎥 Pitch
 
-O **pitch** está disponível em vídeo, com o nome `pitch`, anexado ao repositório.
+O **pitch** está disponível em vídeo, com o nome `pitch`, no seguinte [link do Drive](https://drive.google.com/drive/folders/1bjycCiji6rD_VtT01Ck_9-cE0oJUSwg1?usp=sharing).
 
 ---
 
